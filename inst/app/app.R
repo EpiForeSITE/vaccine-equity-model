@@ -5,7 +5,7 @@
 
 #' @export
 run_model <- function() {
-  shinyAppDir(
+  shiny::shinyAppDir(
     system.file("app/", package = "vaccine.equity")
   )
 }

@@ -23,7 +23,7 @@
 #'
 #'
 run_my_app <- function(...) {
-  shinyAppDir(
+  shiny::shinyAppDir(
     system.file("app/", package = "vaccine.equity")
   )
 }
