@@ -20,7 +20,7 @@ server <- function(input, output, session) {
       as.numeric(input$vac_portion_a),
       as.numeric(input$vac_portion_b)
     )
-    vac_time <- as.numeric(input$vac_time)
+    vac_time <- as.numeric(input$vactime)
     hosp_prob <- c(input$hosp_prob_a, input$hosp_prob_b)
     hosp_death <- c(input$hosp_deathProb_a, input$hosp_deathProb_b)
     nonhosp_death <- c(
@@ -48,8 +48,8 @@ server <- function(input, output, session) {
       )
     )
 
-    fs <- vaccine.equity::get_final_size(
-      vac_time = vac_time,
+    fs <- getFinalSize(
+      vactime = vac_time,
       vac_portion = vac_p,
       pop_size = pop_size,
       r_0 = r_0,

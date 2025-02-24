@@ -1,6 +1,6 @@
 require(deSolve)
 
-object_usage_linter(interpret_glue = TRUE, skip_with = TRUE)
+
 
 get_final_size_analytic <- function(r_init, i_init, v_init, n, r_0, a, eps, q) {
   if (sum(i_init) == 0)
@@ -10,6 +10,7 @@ get_final_size_analytic <- function(r_init, i_init, v_init, n, r_0, a, eps, q) {
   fn <- (1 - eps) * a * n
   f <- fn / sum(fn)
   cij <- diag(eps) + outer((1 - eps), f)
+
 
   r_0i <- r_0 / eigen(a * q * cij)$values[1] * a * q
 

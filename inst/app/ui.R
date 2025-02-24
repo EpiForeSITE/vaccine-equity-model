@@ -28,7 +28,7 @@ double_input_row <- function(input_ida,
   shiny::tags$tr(
     shiny::tags$td(custom_tool_tip(tip), label),
     shiny::tags$td(
-      bslib::numericInput(
+      shiny::numericInput(
         inputId = input_ida,
         value = valuea,
         label = NULL,
@@ -36,7 +36,7 @@ double_input_row <- function(input_ida,
       )
     ),
     shiny::tags$td(
-      bslib::numericInput(
+      shiny::numericInput(
         inputId = input_idb,
         value = valueb,
         label = NULL,
@@ -48,7 +48,7 @@ double_input_row <- function(input_ida,
 
 single_input_row <- function(input_id, label, value, tip = NULL) {
   shiny::tags$tr(shiny::tags$td(custom_tool_tip(tip), label), shiny::tags$td(
-    bslib::numericInput(
+    shiny::numericInput(
       inputId = input_id,
       value = value,
       label = NULL,
@@ -142,7 +142,7 @@ ui <- page_fluid(
         card(
           card_title("Parameters"),
           shiny::tags$table(
-            single_input_row("vacTime", "Vaccination start time (days)",
+            single_input_row("vactime", "Vaccination start time (days)",
               0,
               tip = "Time when vaccine will be started"
             ),
