@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title> • vaccine.equity</title>
+<title>Sensitivity Analysis • vaccine.equity</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Sensitivity Analysis">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -34,7 +34,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/run_model_on_command_line.html">Run Model in the console</a></li>
-    <li><a class="dropdown-item" href="../articles/sensitivity_analysis.html">UNKNOWN TITLE</a></li>
+    <li><a class="dropdown-item" href="../articles/sensitivity_analysis.html">Sensitivity Analysis</a></li>
   </ul>
 </li>
       </ul>
@@ -55,7 +55,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1></h1>
+      <h1>Sensitivity Analysis</h1>
             
       
 
@@ -64,13 +64,6 @@
 
     
     
-<table style="width:6%;" class="table">
-<colgroup><col width="5%"></colgroup>
-<tbody><tr class="odd">
-<td>title: “Sensitivity Analysis” output: rmarkdown::html_vignette
-vignette: &gt; % % %</td>
-</tr></tbody>
-</table>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://epiforesite.github.io/vaccine-equity-model/">vaccine.equity</a></span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -84,310 +77,7 @@ vignette: &gt; % % %</td>
 <span>    contactRatio <span class="op">=</span> <span class="fl">1.7</span>,</span>
 <span>    contactWithinGroup <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.5</span><span class="op">)</span>,</span>
 <span>    suscRatio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">portion</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">portion</span> <span class="op">*</span> <span class="fl">0.4</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">ret</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span><span class="co">#&gt; [1] 0.01</span></span>
-<span><span class="co">#&gt; [1] 0.004</span></span>
-<span><span class="co">#&gt; [1] 27424.83 14772.32</span></span>
-<span><span class="co">#&gt; [1] 0.02</span></span>
-<span><span class="co">#&gt; [1] 0.008</span></span>
-<span><span class="co">#&gt; [1] 27336.11 14671.14</span></span>
-<span><span class="co">#&gt; [1] 0.03</span></span>
-<span><span class="co">#&gt; [1] 0.012</span></span>
-<span><span class="co">#&gt; [1] 2.1137039 0.2013173</span></span>
-<span><span class="co">#&gt; [1] 0.04</span></span>
-<span><span class="co">#&gt; [1] 0.016</span></span>
-<span><span class="co">#&gt; [1] 27157.17 14468.62</span></span>
-<span><span class="co">#&gt; [1] 0.05</span></span>
-<span><span class="co">#&gt; [1] 0.02</span></span>
-<span><span class="co">#&gt; [1] 27066.94 14367.28</span></span>
-<span><span class="co">#&gt; [1] 0.06</span></span>
-<span><span class="co">#&gt; [1] 0.024</span></span>
-<span><span class="co">#&gt; [1] 26976.21 14265.90</span></span>
-<span><span class="co">#&gt; [1] 0.07</span></span>
-<span><span class="co">#&gt; [1] 0.028</span></span>
-<span><span class="co">#&gt; [1] 2.1512268 0.2000539</span></span>
-<span><span class="co">#&gt; [1] 0.08</span></span>
-<span><span class="co">#&gt; [1] 0.032</span></span>
-<span><span class="co">#&gt; [1] 26793.19 14062.99</span></span>
-<span><span class="co">#&gt; [1] 0.09</span></span>
-<span><span class="co">#&gt; [1] 0.036</span></span>
-<span><span class="co">#&gt; [1] 26700.89 13961.47</span></span>
-<span><span class="co">#&gt; [1] 0.1</span></span>
-<span><span class="co">#&gt; [1] 0.04</span></span>
-<span><span class="co">#&gt; [1] 26608.07 13859.90</span></span>
-<span><span class="co">#&gt; [1] 0.11</span></span>
-<span><span class="co">#&gt; [1] 0.044</span></span>
-<span><span class="co">#&gt; [1] 26514.71 13758.29</span></span>
-<span><span class="co">#&gt; [1] 0.12</span></span>
-<span><span class="co">#&gt; [1] 0.048</span></span>
-<span><span class="co">#&gt; [1] 26420.81 13656.64</span></span>
-<span><span class="co">#&gt; [1] 0.13</span></span>
-<span><span class="co">#&gt; [1] 0.052</span></span>
-<span><span class="co">#&gt; [1] 26326.36 13554.94</span></span>
-<span><span class="co">#&gt; [1] 0.14</span></span>
-<span><span class="co">#&gt; [1] 0.056</span></span>
-<span><span class="co">#&gt; [1] 2.2220496 0.2006364</span></span>
-<span><span class="co">#&gt; [1] 0.15</span></span>
-<span><span class="co">#&gt; [1] 0.06</span></span>
-<span><span class="co">#&gt; [1] 26135.81 13351.43</span></span>
-<span><span class="co">#&gt; [1] 0.16</span></span>
-<span><span class="co">#&gt; [1] 0.064</span></span>
-<span><span class="co">#&gt; [1] 2.2430798 0.2000454</span></span>
-<span><span class="co">#&gt; [1] 0.17</span></span>
-<span><span class="co">#&gt; [1] 0.068</span></span>
-<span><span class="co">#&gt; [1] 25943.02 13147.76</span></span>
-<span><span class="co">#&gt; [1] 0.18</span></span>
-<span><span class="co">#&gt; [1] 0.072</span></span>
-<span><span class="co">#&gt; [1] 25845.76 13045.88</span></span>
-<span><span class="co">#&gt; [1] 0.19</span></span>
-<span><span class="co">#&gt; [1] 0.076</span></span>
-<span><span class="co">#&gt; [1] 25747.93 12943.95</span></span>
-<span><span class="co">#&gt; [1] 0.2</span></span>
-<span><span class="co">#&gt; [1] 0.08</span></span>
-<span><span class="co">#&gt; [1] 25649.52 12842.00</span></span>
-<span><span class="co">#&gt; [1] 0.21</span></span>
-<span><span class="co">#&gt; [1] 0.084</span></span>
-<span><span class="co">#&gt; [1] 25550.51 12740.01</span></span>
-<span><span class="co">#&gt; [1] 0.22</span></span>
-<span><span class="co">#&gt; [1] 0.088</span></span>
-<span><span class="co">#&gt; [1] 25450.91 12638.00</span></span>
-<span><span class="co">#&gt; [1] 0.23</span></span>
-<span><span class="co">#&gt; [1] 0.092</span></span>
-<span><span class="co">#&gt; [1] 25350.71 12535.95</span></span>
-<span><span class="co">#&gt; [1] 0.24</span></span>
-<span><span class="co">#&gt; [1] 0.096</span></span>
-<span><span class="co">#&gt; [1] 25249.90 12433.88</span></span>
-<span><span class="co">#&gt; [1] 0.25</span></span>
-<span><span class="co">#&gt; [1] 0.1</span></span>
-<span><span class="co">#&gt; [1] 25148.48 12331.78</span></span>
-<span><span class="co">#&gt; [1] 0.26</span></span>
-<span><span class="co">#&gt; [1] 0.104</span></span>
-<span><span class="co">#&gt; [1] 25046.44 12229.65</span></span>
-<span><span class="co">#&gt; [1] 0.27</span></span>
-<span><span class="co">#&gt; [1] 0.108</span></span>
-<span><span class="co">#&gt; [1] 24943.77 12127.51</span></span>
-<span><span class="co">#&gt; [1] 0.28</span></span>
-<span><span class="co">#&gt; [1] 0.112</span></span>
-<span><span class="co">#&gt; [1] 24840.47 12025.34</span></span>
-<span><span class="co">#&gt; [1] 0.29</span></span>
-<span><span class="co">#&gt; [1] 0.116</span></span>
-<span><span class="co">#&gt; [1] 24736.53 11923.15</span></span>
-<span><span class="co">#&gt; [1] 0.3</span></span>
-<span><span class="co">#&gt; [1] 0.12</span></span>
-<span><span class="co">#&gt; [1] 2.3959044 0.2000015</span></span>
-<span><span class="co">#&gt; [1] 0.31</span></span>
-<span><span class="co">#&gt; [1] 0.124</span></span>
-<span><span class="co">#&gt; [1] 24526.72 11718.73</span></span>
-<span><span class="co">#&gt; [1] 0.32</span></span>
-<span><span class="co">#&gt; [1] 0.128</span></span>
-<span><span class="co">#&gt; [1] 24420.83 11616.50</span></span>
-<span><span class="co">#&gt; [1] 0.33</span></span>
-<span><span class="co">#&gt; [1] 0.132</span></span>
-<span><span class="co">#&gt; [1] 24314.28 11514.26</span></span>
-<span><span class="co">#&gt; [1] 0.34</span></span>
-<span><span class="co">#&gt; [1] 0.136</span></span>
-<span><span class="co">#&gt; [1] 24207.05 11412.00</span></span>
-<span><span class="co">#&gt; [1] 0.35</span></span>
-<span><span class="co">#&gt; [1] 0.14</span></span>
-<span><span class="co">#&gt; [1] 24099.15 11309.74</span></span>
-<span><span class="co">#&gt; [1] 0.36</span></span>
-<span><span class="co">#&gt; [1] 0.144</span></span>
-<span><span class="co">#&gt; [1] 23990.57 11207.48</span></span>
-<span><span class="co">#&gt; [1] 0.37</span></span>
-<span><span class="co">#&gt; [1] 0.148</span></span>
-<span><span class="co">#&gt; [1] 2.4771659 0.2000238</span></span>
-<span><span class="co">#&gt; [1] 0.38</span></span>
-<span><span class="co">#&gt; [1] 0.152</span></span>
-<span><span class="co">#&gt; [1] 23771.32 11002.94</span></span>
-<span><span class="co">#&gt; [1] 0.39</span></span>
-<span><span class="co">#&gt; [1] 0.156</span></span>
-<span><span class="co">#&gt; [1] 23660.64 10900.68</span></span>
-<span><span class="co">#&gt; [1] 0.4</span></span>
-<span><span class="co">#&gt; [1] 0.16</span></span>
-<span><span class="co">#&gt; [1] 23549.25 10798.41</span></span>
-<span><span class="co">#&gt; [1] 0.41</span></span>
-<span><span class="co">#&gt; [1] 0.164</span></span>
-<span><span class="co">#&gt; [1] 23437.14 10696.16</span></span>
-<span><span class="co">#&gt; [1] 0.42</span></span>
-<span><span class="co">#&gt; [1] 0.168</span></span>
-<span><span class="co">#&gt; [1] 23324.30 10593.91</span></span>
-<span><span class="co">#&gt; [1] 0.43</span></span>
-<span><span class="co">#&gt; [1] 0.172</span></span>
-<span><span class="co">#&gt; [1] 23210.73 10491.68</span></span>
-<span><span class="co">#&gt; [1] 0.44</span></span>
-<span><span class="co">#&gt; [1] 0.176</span></span>
-<span><span class="co">#&gt; [1] 23096.42 10389.46</span></span>
-<span><span class="co">#&gt; [1] 0.45</span></span>
-<span><span class="co">#&gt; [1] 0.18</span></span>
-<span><span class="co">#&gt; [1] 22981.36 10287.26</span></span>
-<span><span class="co">#&gt; [1] 0.46</span></span>
-<span><span class="co">#&gt; [1] 0.184</span></span>
-<span><span class="co">#&gt; [1] 22865.54 10185.08</span></span>
-<span><span class="co">#&gt; [1] 0.47</span></span>
-<span><span class="co">#&gt; [1] 0.188</span></span>
-<span><span class="co">#&gt; [1] 22748.96 10082.93</span></span>
-<span><span class="co">#&gt; [1] 0.48</span></span>
-<span><span class="co">#&gt; [1] 0.192</span></span>
-<span><span class="co">#&gt; [1] 22631.614  9980.795</span></span>
-<span><span class="co">#&gt; [1] 0.49</span></span>
-<span><span class="co">#&gt; [1] 0.196</span></span>
-<span><span class="co">#&gt; [1] 22513.485  9878.699</span></span>
-<span><span class="co">#&gt; [1] 0.5</span></span>
-<span><span class="co">#&gt; [1] 0.2</span></span>
-<span><span class="co">#&gt; [1] 2.4117952 0.2000184</span></span>
-<span><span class="co">#&gt; [1] 0.51</span></span>
-<span><span class="co">#&gt; [1] 0.204</span></span>
-<span><span class="co">#&gt; [1] 22274.854  9674.604</span></span>
-<span><span class="co">#&gt; [1] 0.52</span></span>
-<span><span class="co">#&gt; [1] 0.208</span></span>
-<span><span class="co">#&gt; [1] 22154.340  9572.616</span></span>
-<span><span class="co">#&gt; [1] 0.53</span></span>
-<span><span class="co">#&gt; [1] 0.212</span></span>
-<span><span class="co">#&gt; [1] 22033.016  9470.672</span></span>
-<span><span class="co">#&gt; [1] 0.54</span></span>
-<span><span class="co">#&gt; [1] 0.216</span></span>
-<span><span class="co">#&gt; [1] 21910.872  9368.775</span></span>
-<span><span class="co">#&gt; [1] 0.55</span></span>
-<span><span class="co">#&gt; [1] 0.22</span></span>
-<span><span class="co">#&gt; [1] 21787.90  9266.93</span></span>
-<span><span class="co">#&gt; [1] 0.56</span></span>
-<span><span class="co">#&gt; [1] 0.224</span></span>
-<span><span class="co">#&gt; [1] 21664.097  9165.141</span></span>
-<span><span class="co">#&gt; [1] 0.57</span></span>
-<span><span class="co">#&gt; [1] 0.228</span></span>
-<span><span class="co">#&gt; [1] 21539.44  9063.41</span></span>
-<span><span class="co">#&gt; [1] 0.58</span></span>
-<span><span class="co">#&gt; [1] 0.232</span></span>
-<span><span class="co">#&gt; [1] 21413.941  8961.739</span></span>
-<span><span class="co">#&gt; [1] 0.59</span></span>
-<span><span class="co">#&gt; [1] 0.236</span></span>
-<span><span class="co">#&gt; [1] 21287.585  8860.144</span></span>
-<span><span class="co">#&gt; [1] 0.6</span></span>
-<span><span class="co">#&gt; [1] 0.24</span></span>
-<span><span class="co">#&gt; [1] 21160.355  8758.617</span></span>
-<span><span class="co">#&gt; [1] 0.61</span></span>
-<span><span class="co">#&gt; [1] 0.244</span></span>
-<span><span class="co">#&gt; [1] 21032.250  8657.166</span></span>
-<span><span class="co">#&gt; [1] 0.62</span></span>
-<span><span class="co">#&gt; [1] 0.248</span></span>
-<span><span class="co">#&gt; [1] 20903.257  8555.797</span></span>
-<span><span class="co">#&gt; [1] 0.63</span></span>
-<span><span class="co">#&gt; [1] 0.252</span></span>
-<span><span class="co">#&gt; [1] 20773.369  8454.512</span></span>
-<span><span class="co">#&gt; [1] 0.64</span></span>
-<span><span class="co">#&gt; [1] 0.256</span></span>
-<span><span class="co">#&gt; [1] 20642.580  8353.321</span></span>
-<span><span class="co">#&gt; [1] 0.65</span></span>
-<span><span class="co">#&gt; [1] 0.26</span></span>
-<span><span class="co">#&gt; [1] 20510.879  8252.224</span></span>
-<span><span class="co">#&gt; [1] 0.66</span></span>
-<span><span class="co">#&gt; [1] 0.264</span></span>
-<span><span class="co">#&gt; [1] 20378.258  8151.228</span></span>
-<span><span class="co">#&gt; [1] 0.67</span></span>
-<span><span class="co">#&gt; [1] 0.268</span></span>
-<span><span class="co">#&gt; [1] 20244.704  8050.337</span></span>
-<span><span class="co">#&gt; [1] 0.68</span></span>
-<span><span class="co">#&gt; [1] 0.272</span></span>
-<span><span class="co">#&gt; [1] 20110.219  7949.561</span></span>
-<span><span class="co">#&gt; [1] 0.69</span></span>
-<span><span class="co">#&gt; [1] 0.276</span></span>
-<span><span class="co">#&gt; [1] 19974.78  7848.90</span></span>
-<span><span class="co">#&gt; [1] 0.7</span></span>
-<span><span class="co">#&gt; [1] 0.28</span></span>
-<span><span class="co">#&gt; [1] 19838.393  7748.363</span></span>
-<span><span class="co">#&gt; [1] 0.71</span></span>
-<span><span class="co">#&gt; [1] 0.284</span></span>
-<span><span class="co">#&gt; [1] 19701.036  7647.954</span></span>
-<span><span class="co">#&gt; [1] 0.72</span></span>
-<span><span class="co">#&gt; [1] 0.288</span></span>
-<span><span class="co">#&gt; [1] 19562.71  7547.68</span></span>
-<span><span class="co">#&gt; [1] 0.73</span></span>
-<span><span class="co">#&gt; [1] 0.292</span></span>
-<span><span class="co">#&gt; [1] 19423.40  7447.55</span></span>
-<span><span class="co">#&gt; [1] 0.74</span></span>
-<span><span class="co">#&gt; [1] 0.296</span></span>
-<span><span class="co">#&gt; [1] 19283.092  7347.564</span></span>
-<span><span class="co">#&gt; [1] 0.75</span></span>
-<span><span class="co">#&gt; [1] 0.3</span></span>
-<span><span class="co">#&gt; [1] 19141.791  7247.735</span></span>
-<span><span class="co">#&gt; [1] 0.76</span></span>
-<span><span class="co">#&gt; [1] 0.304</span></span>
-<span><span class="co">#&gt; [1] 18999.478  7148.064</span></span>
-<span><span class="co">#&gt; [1] 0.77</span></span>
-<span><span class="co">#&gt; [1] 0.308</span></span>
-<span><span class="co">#&gt; [1] 18856.150  7048.564</span></span>
-<span><span class="co">#&gt; [1] 0.78</span></span>
-<span><span class="co">#&gt; [1] 0.312</span></span>
-<span><span class="co">#&gt; [1] 18711.791  6949.235</span></span>
-<span><span class="co">#&gt; [1] 0.79</span></span>
-<span><span class="co">#&gt; [1] 0.316</span></span>
-<span><span class="co">#&gt; [1] 18566.397  6850.091</span></span>
-<span><span class="co">#&gt; [1] 0.8</span></span>
-<span><span class="co">#&gt; [1] 0.32</span></span>
-<span><span class="co">#&gt; [1] 18419.961  6751.136</span></span>
-<span><span class="co">#&gt; [1] 0.81</span></span>
-<span><span class="co">#&gt; [1] 0.324</span></span>
-<span><span class="co">#&gt; [1] 18272.443  6652.366</span></span>
-<span><span class="co">#&gt; [1] 0.82</span></span>
-<span><span class="co">#&gt; [1] 0.328</span></span>
-<span><span class="co">#&gt; [1] 18123.93  6553.83</span></span>
-<span><span class="co">#&gt; [1] 0.83</span></span>
-<span><span class="co">#&gt; [1] 0.332</span></span>
-<span><span class="co">#&gt; [1] 17974.292  6455.486</span></span>
-<span><span class="co">#&gt; [1] 0.84</span></span>
-<span><span class="co">#&gt; [1] 0.336</span></span>
-<span><span class="co">#&gt; [1] 17823.593  6357.368</span></span>
-<span><span class="co">#&gt; [1] 0.85</span></span>
-<span><span class="co">#&gt; [1] 0.34</span></span>
-<span><span class="co">#&gt; [1] 17671.797  6259.478</span></span>
-<span><span class="co">#&gt; [1] 0.86</span></span>
-<span><span class="co">#&gt; [1] 0.344</span></span>
-<span><span class="co">#&gt; [1] 17518.910  6161.828</span></span>
-<span><span class="co">#&gt; [1] 0.87</span></span>
-<span><span class="co">#&gt; [1] 0.348</span></span>
-<span><span class="co">#&gt; [1] 17364.918  6064.425</span></span>
-<span><span class="co">#&gt; [1] 0.88</span></span>
-<span><span class="co">#&gt; [1] 0.352</span></span>
-<span><span class="co">#&gt; [1] 17209.812  5967.279</span></span>
-<span><span class="co">#&gt; [1] 0.89</span></span>
-<span><span class="co">#&gt; [1] 0.356</span></span>
-<span><span class="co">#&gt; [1] 17053.586  5870.399</span></span>
-<span><span class="co">#&gt; [1] 0.9</span></span>
-<span><span class="co">#&gt; [1] 0.36</span></span>
-<span><span class="co">#&gt; [1] 16896.229  5773.792</span></span>
-<span><span class="co">#&gt; [1] 0.91</span></span>
-<span><span class="co">#&gt; [1] 0.364</span></span>
-<span><span class="co">#&gt; [1] 16737.731  5677.471</span></span>
-<span><span class="co">#&gt; [1] 0.92</span></span>
-<span><span class="co">#&gt; [1] 0.368</span></span>
-<span><span class="co">#&gt; [1] 16578.105  5581.448</span></span>
-<span><span class="co">#&gt; [1] 0.93</span></span>
-<span><span class="co">#&gt; [1] 0.372</span></span>
-<span><span class="co">#&gt; [1] 16417.306  5485.725</span></span>
-<span><span class="co">#&gt; [1] 0.94</span></span>
-<span><span class="co">#&gt; [1] 0.376</span></span>
-<span><span class="co">#&gt; [1] 16255.36  5390.32</span></span>
-<span><span class="co">#&gt; [1] 0.95</span></span>
-<span><span class="co">#&gt; [1] 0.38</span></span>
-<span><span class="co">#&gt; [1] 16092.248  5295.242</span></span>
-<span><span class="co">#&gt; [1] 0.96</span></span>
-<span><span class="co">#&gt; [1] 0.384</span></span>
-<span><span class="co">#&gt; [1] 3.3353318 0.2001099</span></span>
-<span><span class="co">#&gt; [1] 0.97</span></span>
-<span><span class="co">#&gt; [1] 0.388</span></span>
-<span><span class="co">#&gt; [1] 15762.491  5106.107</span></span>
-<span><span class="co">#&gt; [1] 0.98</span></span>
-<span><span class="co">#&gt; [1] 0.392</span></span>
-<span><span class="co">#&gt; [1] 15595.839  5012.075</span></span>
-<span><span class="co">#&gt; [1] 0.99</span></span>
-<span><span class="co">#&gt; [1] 0.396</span></span>
-<span><span class="co">#&gt; [1] 15427.992  4918.412</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
-<span><span class="co">#&gt; [1] 0.4</span></span>
-<span><span class="co">#&gt; [1] 15258.947  4825.133</span></span></code></pre></div>
+<span><span class="op">}</span></span></code></pre></div>
   </main>
 </div>
 
