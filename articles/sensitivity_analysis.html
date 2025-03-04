@@ -66,18 +66,54 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://epiforesite.github.io/vaccine-equity-model/">vaccine.equity</a></span><span class="op">)</span></span></code></pre></div>
+<p>Consider a population with the following parameters:</p>
+<ul>
+<li><p>Two sub-populations sized 80000 (A) and 20000 (B)</p></li>
+<li><p>At time zero 20% of both A and B are vaccinated</p></li>
+<li><p>R-Naught is 1.75, infected individuals take a week to
+recover.</p></li>
+<li><p>With a contact ratio of 2, Group B makes twice as many contacts
+as group A.</p></li>
+<li><p>75% of Group A’s contacts are within Group A. 50% of Group B’s
+contacts are within Group B</p></li>
+<li><p>Susceptibility ratio varies from 0.5 to 2. At 0.5 Group A is
+twice as susceptible to infection as Group B. At 2, Group A is half as
+susceptible to infection as Group A.</p></li>
+</ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">portion</span> <span class="op">&lt;-</span> <span class="va">i</span> <span class="op">/</span> <span class="fl">100</span></span>
+<code class="sourceCode R"><span><span class="va">index</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">vector</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">groupA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">vector</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">groupB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">vector</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">popA</span> <span class="op">&lt;-</span> <span class="fl">80000</span></span>
+<span><span class="va">popB</span> <span class="op">&lt;-</span> <span class="fl">20000</span></span>
+<span></span>
+<span><span class="co"># For each</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">2</span>, <span class="fl">0.01</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span></span>
 <span>  <span class="va">ret</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/getFinalSize.html">getFinalSize</a></span><span class="op">(</span>vacTime <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>    vacPortion <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="va">portion</span> <span class="op">*</span> <span class="fl">0.4</span><span class="op">)</span>,</span>
-<span>    popSize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">80000</span>, <span class="fl">20000</span><span class="op">)</span>,</span>
+<span>    vacPortion <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.2</span><span class="op">)</span>,</span>
+<span>    popSize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">popA</span>, <span class="va">popB</span><span class="op">)</span>,</span>
 <span>    R0 <span class="op">=</span> <span class="fl">1.75</span>,</span>
 <span>    recoveryRate <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">7</span>,</span>
-<span>    contactRatio <span class="op">=</span> <span class="fl">1.7</span>,</span>
-<span>    contactWithinGroup <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.5</span><span class="op">)</span>,</span>
-<span>    suscRatio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div>
+<span>    contactRatio <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>    contactWithinGroup <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.75</span>, <span class="fl">0.5</span><span class="op">)</span>,</span>
+<span>    suscRatio <span class="op">=</span> <span class="va">i</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">ret</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">1000</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">index</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">index</span>, <span class="va">i</span><span class="op">)</span></span>
+<span>    <span class="va">groupA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">groupA</span>, <span class="va">ret</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">/</span> <span class="va">popA</span><span class="op">)</span></span>
+<span>    <span class="va">groupB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">groupB</span>, <span class="va">ret</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">/</span> <span class="va">popB</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span></span>
+<span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">groupA</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">groupB</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.4683875</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">index</span>, <span class="va">groupA</span>, type <span class="op">=</span> <span class="st">"l"</span>, xlab <span class="op">=</span> <span class="st">"Group B / Group A Susceptibility Ratio"</span>, ylab <span class="op">=</span> <span class="st">"Infection Prevalence"</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">groupA</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">groupB</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="va">index</span>, <span class="va">groupB</span>, type <span class="op">=</span> <span class="st">"l"</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"topright"</span>, legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Group A Prevalence"</span>, <span class="st">"Group B Prevalence"</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="st">"red"</span><span class="op">)</span>, lty <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<p><img src="sensitivity_analysis_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
   </main>
 </div>
 
