@@ -3,12 +3,10 @@
 
 Vaccine Equity Model
 
-
-
 ## Getting Started
 
-This models the behavior of a population with two distinct sub-populations
-that interact differentially between within-group and across group rates
+This R package models the behavior of a population with two distinct sub-populations
+that interact differentially between within-group and across-group rates
 and that have different rates of vaccine adherence.
 
 ### Prerequisites
@@ -16,16 +14,16 @@ and that have different rates of vaccine adherence.
 
 ### Installing
 
-Install the package from github using the devtools package, then run
+Install the package from github using the [remotes](https://cran.r-project.org/package=remotes) package, then run
 the Shiny application with the run_my_app() function.
 
-    install_github("EpiForeSITE/vaccine-equity-model")
-
-    vaccine-equity-model::run_my_app()
+```r
+remotes::install_github("EpiForeSITE/vaccine-equity-model")
+vaccine.equity::run_my_app()
+```
 
 
 ## License
 
-This project is licensed under the [CC0 1.0 Universal](LICENSE.md)
-Creative Commons License - see the [LICENSE.md](LICENSE.md) file for
-details
+This project is licensed under the [MIT](LICENSE.md) License - see the [LICENSE.md](LICENSE.md) file for
+details.
